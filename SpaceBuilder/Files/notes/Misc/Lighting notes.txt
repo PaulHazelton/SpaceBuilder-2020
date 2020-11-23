@@ -1,0 +1,2 @@
+Translucent grayscale image overlayed over the images.
+The overlay will rotate and change with the local lighting

@@ -1,0 +1,8 @@
+public class Hull extends Block implements Basic Block
+
+
+
+public Hull(SubType st, ShapeType sht, int w, int h, int ar, Color col)
+{
+	super(st, sht, ar, w, h, 200, col);
+}

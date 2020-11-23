@@ -1,0 +1,5 @@
+BLOCK ANIMATION
+
+There could be a translucent crack image that is
+overlayed on top of the blocks to make them look
+damaged

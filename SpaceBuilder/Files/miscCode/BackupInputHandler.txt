@@ -1,0 +1,330 @@
+package framework;
+
+import java.awt.Toolkit;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.util.LinkedList;
+
+import org.jbox2d.common.Vec2;
+
+import framework.InputEvent.InputEventType;
+
+/**
+ * This should not be instantiated more than once in the main method.
+ * This handles keyboard input, mouse input, and window input.
+ * Every input event adds an InputItem to a queue. On each game tick model.getGame().inputEvent() is called and sent and item.
+ * @author Paul Hazelton
+ */
+public class InputHandler implements
+	KeyListener,
+	MouseListener,
+	MouseMotionListener,
+	MouseWheelListener,
+	ComponentListener,
+	WindowListener
+{
+	private Model model;
+	
+	private LinkedList<InputEvent> inputQueue = new LinkedList<InputEvent>();
+	
+	//Quick access keys
+	private final boolean[] keyCodes = new boolean[512];
+	
+	public boolean UP		= false;
+	public boolean DOWN		= false;
+	public boolean LEFT		= false;
+	public boolean RIGHT	= false;
+	
+	public boolean L_SHIFT	 = false;
+	public boolean R_SHIFT	 = false;
+	public boolean L_CTRL	 = false;
+	public boolean R_CTRL	 = false;
+	public boolean L_ALT	 = false;
+	public boolean R_ALT	 = false;
+	
+	public boolean ENTER	 = false;
+	public boolean CAPS_LOCK = false;
+	
+	//Quick access mouse buttons
+	private final boolean[] mouseButtons = new boolean[3];
+	
+	public boolean LEFT_CLICK_DOWN	= false;
+	public boolean MIDDLE_CLICK_DOWN= false;
+	public boolean RIGHT_CLICK_DOWN	= false;
+	
+	public final int LEFT_CLICK		= 1;
+	public final int MIDDLE_CLICK	= 2;
+	public final int RIGHT_CLICK	= 3;
+	
+	private static Vec2 mouseScreen	= new Vec2(0, 0);
+	private static Vec2 mouseWorld		= new Vec2(0, 0);
+	
+	//Constructor
+	public InputHandler(Model model)
+	{	
+		this.model = model;
+		
+		this.CAPS_LOCK = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+	}
+	
+	//Handling the queue
+	public synchronized void handleInput(Game gameMode)
+	{
+		if (!this.model.getAllowEvents())
+			return;
+		
+		InputEvent i;
+		while (!inputQueue.isEmpty())
+		{
+			//TODO Somehow sometimes this input queue is empty when I pop it. no fukn clu why tho
+			i = inputQueue.pop();
+			gameMode.superInputEvent(i);
+		}
+	}
+	
+	//Getting keys
+	/**
+	 * This tells if a particular key is currentlly pressed down.
+	 * for example: {@link getKey([KeyEvent.VK_A])} will be true if the 'A' key is down.
+	 * The KeyCode array is meant to provide quick access to see if a key is down.
+	 * @param keyCode - Sending a {@link KeyEvent.VK_X} is convinient and will usually work, however some vk keys are out of bounds.
+	 * @throws IllegalArgumentException - if the argument is >= 512
+	 */
+	public boolean getKey(int keyCode) throws IllegalArgumentException
+	{
+		if (keyCode >= this.keyCodes.length || keyCode < 0)
+			throw new IllegalArgumentException();
+		
+		return this.keyCodes[keyCode];
+	}
+	/**
+	 * This tells if a particular mouse button is currently being pressed down.
+	 * @param button - the mouse button.
+	 * <p> 0 - Left button usually <p> 1 - Middle button usually <p> 2 - Right button usually
+	 * @return {@literal true} is the button is currently down.
+	 * @throws IllegalArgumentException
+	 */
+	public boolean getMouseButtons(int button) throws IllegalArgumentException
+	{
+		if (button >= this.mouseButtons.length || button < 0)
+			throw new IllegalArgumentException();
+		
+		return this.mouseButtons[button];
+	}
+	
+	public static Vec2 getMouseScreen()	{ return mouseScreen; }
+	public static Vec2 getMouseWorld()		{ return mouseWorld; }
+	
+	public void updateMouseWorld()
+	{
+		mouseWorld = this.model.getCamera().getScreenToWorld(mouseWorld, mouseScreen);
+	}
+	
+	//Input to queueItems
+	@Override
+	public void keyPressed		(KeyEvent e)
+	{
+		this.inputQueue.add(new InputEvent(InputEventType.KEY_PRESSED, e));
+		
+		if (e.getKeyCode() < keyCodes.length)
+			this.keyCodes[e.getKeyCode()] = true;
+		
+		this.CAPS_LOCK = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+		
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+			this.UP = true;
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+			this.DOWN = true;
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
+			this.LEFT = true;
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+			this.RIGHT = true;
+		
+		switch (e.getKeyCode())
+		{
+		case KeyEvent.VK_UP:
+		case KeyEvent.VK_DOWN:
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_SHIFT && e.getKeyLocation() == KeyEvent.KEY_LOCATION_LEFT)
+			L_SHIFT = true;
+		if (e.getKeyCode() == KeyEvent.VK_SHIFT && e.getKeyLocation() == KeyEvent.KEY_LOCATION_RIGHT)
+			L_SHIFT = true;
+		if (e.getKeyCode() == KeyEvent.VK_CONTROL && e.getKeyLocation() == KeyEvent.KEY_LOCATION_LEFT)
+			L_CTRL = true;
+		if (e.getKeyCode() == KeyEvent.VK_CONTROL && e.getKeyLocation() == KeyEvent.KEY_LOCATION_RIGHT)
+			L_CTRL = true;
+		if (e.getKeyCode() == KeyEvent.VK_ALT && e.getKeyLocation() == KeyEvent.KEY_LOCATION_LEFT)
+			L_ALT = true;
+		if (e.getKeyCode() == KeyEvent.VK_ALT && e.getKeyLocation() == KeyEvent.KEY_LOCATION_RIGHT)
+			L_ALT = true;
+		
+		if (e.getKeyCode() == KeyEvent.VK_ENTER)
+			ENTER = true;
+	}
+	@Override
+	public void keyReleased		(KeyEvent e)
+	{
+		this.inputQueue.add(new InputEvent(InputEventType.KEY_RELEASED, e));
+		
+		if (e.getKeyCode() < keyCodes.length)
+			this.keyCodes[e.getKeyCode()] = false;
+		
+		if (e.getKeyCode() == KeyEvent.VK_SHIFT && e.getKeyLocation() == KeyEvent.KEY_LOCATION_LEFT)
+			L_SHIFT = false;
+		if (e.getKeyCode() == KeyEvent.VK_SHIFT && e.getKeyLocation() == KeyEvent.KEY_LOCATION_RIGHT)
+			L_SHIFT = false;
+		if (e.getKeyCode() == KeyEvent.VK_CONTROL && e.getKeyLocation() == KeyEvent.KEY_LOCATION_LEFT)
+			L_CTRL = false;
+		if (e.getKeyCode() == KeyEvent.VK_CONTROL && e.getKeyLocation() == KeyEvent.KEY_LOCATION_RIGHT)
+			L_CTRL = false;
+		if (e.getKeyCode() == KeyEvent.VK_ALT && e.getKeyLocation() == KeyEvent.KEY_LOCATION_LEFT)
+			L_ALT = false;
+		if (e.getKeyCode() == KeyEvent.VK_ALT && e.getKeyLocation() == KeyEvent.KEY_LOCATION_RIGHT)
+			L_ALT = false;
+		
+		if (e.getKeyCode() == KeyEvent.VK_ENTER)
+			ENTER = false;
+	}
+	@Override
+	public void keyTyped		(KeyEvent e)
+	{
+		this.inputQueue.add(new InputEvent(InputEventType.KEY_TYPED, e));
+	}
+	
+	@Override
+	public void mousePressed	(MouseEvent e)
+	{
+		this.inputQueue.add(new InputEvent(InputEventType.MOUSE_PRESSED, e));
+		
+		mouseButtons[e.getButton() - 1] = true;
+		
+		if (e.getButton() == MouseEvent.BUTTON1)
+			LEFT_CLICK_DOWN = true;
+		if (e.getButton() == MouseEvent.BUTTON2)
+			MIDDLE_CLICK_DOWN = true;
+		if (e.getButton() == MouseEvent.BUTTON3)
+			RIGHT_CLICK_DOWN = true;
+	}
+	@Override
+	public void mouseReleased	(MouseEvent e)
+	{
+		this.inputQueue.add(new InputEvent(InputEventType.MOUSE_RELEASED, e));
+		
+		mouseButtons[e.getButton() - 1] = false;
+		
+		if (e.getButton() == MouseEvent.BUTTON1)
+			LEFT_CLICK_DOWN = false;
+		if (e.getButton() == MouseEvent.BUTTON2)
+			MIDDLE_CLICK_DOWN = false;
+		if (e.getButton() == MouseEvent.BUTTON3)
+			RIGHT_CLICK_DOWN = false;
+	}
+	@Override
+	public void mouseClicked	(MouseEvent e)
+	{
+		this.inputQueue.add(new InputEvent(InputEventType.MOUSE_CLICKED, e));
+	}
+	@Override
+	public void mouseEntered	(MouseEvent e)
+	{
+		this.inputQueue.add(new InputEvent(InputEventType.MOUSE_ENTERED, e));
+	}
+	@Override
+	public void mouseExited		(MouseEvent e)
+	{
+		this.inputQueue.add(new InputEvent(InputEventType.MOUSE_EXITED, e));
+	}
+	
+	@Override
+	public void mouseMoved		(MouseEvent e)
+	{
+		mouseScreen.x = e.getX();
+		mouseScreen.y = e.getY();
+		
+		this.inputQueue.add(new InputEvent(InputEventType.MOUSE_MOVED, e));
+	}
+	@Override
+	public void mouseDragged	(MouseEvent e)
+	{
+		mouseScreen.x = e.getX();
+		mouseScreen.y = e.getY();
+		
+		this.inputQueue.add(new InputEvent(InputEventType.MOUSE_DRAGGED, e));
+	}	
+	
+	@Override
+	public void mouseWheelMoved	(MouseWheelEvent e)
+	{	
+		this.inputQueue.add(new InputEvent(InputEventType.MOUSE_WHEEL_MOVED, e));
+	}
+
+	@Override
+	public void componentHidden	(ComponentEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.COMPONENT_HIDDEN, e));
+	}
+	@Override
+	public void componentShown	(ComponentEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.COMPONENT_SHOWN, e));
+	}
+	@Override
+	public void componentMoved	(ComponentEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.COMPONENT_MOVED, e));
+	}
+	@Override
+	public void componentResized(ComponentEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.COMPONENT_RESIZED, e));
+		
+		this.model.updateDimentions();
+	}
+
+	@Override
+	public void windowOpened		(WindowEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.WINDOW_OPENED, e));
+	}
+	@Override
+	public void windowClosing		(WindowEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.WINDOW_CLOSING, e));
+		this.model.setRunning(false);
+	}
+	@Override
+	public void windowClosed		(WindowEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.WINDOW_CLOSED, e));
+	}
+	@Override
+	public void windowActivated		(WindowEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.WINDOW_ACTIVATED, e));
+	}
+	@Override
+	public void windowDeactivated	(WindowEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.WINDOW_DEACTIVATED, e));
+	}
+	@Override
+	public void windowIconified		(WindowEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.WINDOW_ICONIFIED, e));
+	}
+	@Override
+	public void windowDeiconified	(WindowEvent e)
+	{
+		inputQueue.add(new InputEvent(InputEventType.WINDOW_DEICONIFIED, e));
+	}
+}

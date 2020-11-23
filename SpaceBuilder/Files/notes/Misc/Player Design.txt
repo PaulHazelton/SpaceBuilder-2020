@@ -1,0 +1,38 @@
+Player Design notes
+
+*Destroy player and recreate to mirror
+*Maybey make all the parts have no mass and keep the center of
+ gravity in a sensor closer to the ground
+
+All Parts in order Facing Right
+
+
+Arm_1
+	Hand
+	Forearm
+	Bicep
+Leg_1
+	Sole
+	Foot
+	Shin
+	Thigh
+Helmet
+	Bowl
+	Viser
+Torso
+	Main
+	Hip
+	Belt
+Leg_2
+	Sole
+	Foot
+	Shin
+	Thigh
+Hip
+	Hip
+Arm_2
+	Hand
+	Forearm
+	Bicep
+Shoulder
+	Shoulder

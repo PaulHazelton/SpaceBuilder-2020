@@ -1,0 +1,183 @@
+Block Catagories
+
+Basic Blocks
+	Hull
+		Standard
+		Back Pannels
+		Front Pannels
+	Window
+		Standard
+		Wipers
+Containment
+	Tank
+		Fuel
+		Air
+		Water
+	Container
+		Cargo
+		Ammunition
+		Freezer
+		R.M.C. -Radioactive Material Containment
+		Antimatter
+Computers
+	Hardware
+		Control Pannel
+		Kiosk
+		Communicator
+		Controller
+		Camera
+		Sensor
+		Scanner
+		Navigation
+		Beacon
+		Super Computer
+	Software
+		Flight Calibrator
+		Auto piolot
+Connectors
+	Landing Shoe
+		Platform
+		Terrain Light
+		Terrain Med
+		Terrain Rough
+	Pump
+		Air
+		Water
+		Emergency Water
+		Fuel
+		Anti Matter
+	Transfer Tube
+		Standard
+		Fast
+Energy
+	Solar Pannel
+		High Intensity
+		Low Intensity
+	Liquid Turbine
+		Standard
+	Generator
+		Fuel
+		Fission
+		Fusion
+		Anti Matter
+	Distributor
+	Battery
+		Standard
+		Overcharger
+Lights
+	Spotlight
+		Standerd
+		Color Changer
+	Exterior Light
+		Standard
+		SeaLight
+		Color Changer
+	Interior Light
+		Standard
+		Color Changer
+Locomotion
+Air
+	One Way Thruster
+	Two Way Thruster
+	Baloon
+	Wing
+Land
+	Axel
+	Powered Wheel
+		Standard
+		Hybrid Wheel
+	Free Wheel
+Sea
+	One Way Thruster
+	Two Way Thruster
+	Pontoon
+	Balast
+Space
+	Gyroscope
+	One Way Thruster
+	Two Way Thruster
+	Rotary Thruster
+	PLATO Engine
+	EMFM Engine
+	Alcubierre Drive
+Manufacturing
+	Convayer Rail
+	Construction Arm
+	3D Printer
+	Material Synthesizer
+	Magnet Rail Platform
+Mechanics
+	Rotor
+	Piston
+	Repair Arm
+	Magnet
+	Clamp
+Mining
+	Mining Drill
+	Mining Laser
+	Ore Collector Bin
+	Active Ore Collector
+	Refinery
+	Grinder
+	Clamp
+		Delicate
+		Heavy
+Pressure Regulation
+	Seal
+		Air
+		Water
+	Pressre Sensor
+		Air
+		Water
+	Vent
+		Air
+		Water
+	Air Conditioner
+		Cooler
+		Heater
+		Filter
+Weapons
+	Projectile
+		Standard
+		Cannon
+		Rail Gun
+	Explosive
+		Standard Charge
+		Linear Charge
+		Directional Charge
+		Hydrogen Bomb
+	Energy
+		Pulse Laser
+		Laser
+		Burst Laser
+		Plasma Beam
+Defence
+	Sheild
+		Energy Sheild Projecton
+		FRIGG
+	Point Defence
+		Projectile
+		Explosive
+		Energy
+Miscellaneous
+	Seat
+		Luxury Seat
+	Gravity Generator
+		Linear
+		Radial
+	Surge Protector
+	Med Bay
+
+
+
+
+
+
+
+
+
+
+
+
+
+

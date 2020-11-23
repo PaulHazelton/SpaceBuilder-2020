@@ -1,0 +1,48 @@
+Arm
+248, 195
+Hand
+Forearm
+Bicep
+End
+
+Leg
+145, 577
+Shin
+Sole
+Foot
+Thigh
+End
+
+Helmet
+240, 048
+Helmet
+End
+
+Main
+Main
+End
+
+Leg
+145, 577
+Shin
+Sole
+Foot
+Thigh
+End
+
+Hip
+145, 577
+Hip
+End
+
+Arm
+248, 195
+Hand
+Forearm
+Bicep
+End
+
+Shoulder
+248, 195
+Shoulder
+End

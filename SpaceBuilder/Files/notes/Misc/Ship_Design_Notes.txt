@@ -1,0 +1,13 @@
+Every Ship/Station is made of polygons.
+
+Every polygon has a back, middle, and front parts.
+Some of these parts may be invisible and/or no-physics
+
+Most parts will have a silhouette drawn behind the image with
+transparencies, the user will pick a color for the silhouette.
+
+The air vents will be weak points
+
+"Empty blocks" don't need a back, empty middle, and front,
+they just need a back and a front. (you can walk through it
+though)

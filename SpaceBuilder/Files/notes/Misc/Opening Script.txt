@@ -1,0 +1,87 @@
+()	action
+{}	announcements
+<>	text prompts
+[]	tags
+
+---------------Opening Scene--------------------
+
+(Stars scrolling to left)
+(Credits Roll)
+(Name Appears[fix], Music intensifies)
+
+COMPUTER VOICE:
+	{Commence decryopod protocol}
+
+ELIZABEH:
+	Where am I?
+
+COMPUTER VOICE:
+	"You are in [fix] heading toward station [fix]."
+
+IRIS:
+	How long was I in cryo?
+
+COMPUTER:
+	"1,253 days and 6,427 seconds."
+
+IRIS:
+	What happened? Why am I here?
+
+COMPUTER:
+	"This pod was released from a long range starship in an emergency situation approximately 1,254 days ago. You were set in cryo sleep on your
+	demand and not to be woken until the arrival of station [fix]. My memeory status shows that a large amount of data was dumped on the same day."
+
+	{DECRYOPOD PROTOCOL COMPLETE}
+	{<IRIS FAULKEN> THIS VEHICLE IS NOW UNDER YOUR CONTROL}
+	
+<TIPS ON HOW TO WALK APPEAR> [fix]
+<TIP TO ACCESS CONTROL PANNEL> [fix]
+
+NEARBY STATION:
+	{YOU ARE ENTERING STATION'S [fix] LOCAL SPACE}
+	{WELCOME TO STATION [fix]}
+	{PLEASE USE LANDING ZONE 2A[fix]}
+
+[fix]
+<TIP ON HOW TO FLY SHIP>
+<TIP TO EXTEND LANDING GEAR>
+<TIP TO SLOW DOWN>
+<TIP TO LOCK LANDING GEAR>
+<TIP TO OPEN DOOR>
+[fix]
+
+<NEW MISSION: THE BEGINNING>
+<NEW TASK: PURCHASE A NEW SPACE SHIP>
+
+<TIP TO READ SIGN> [fix]
+
+(The sign is a map of the station)
+
+<Tip: Select CONTROL PANNELS on the filters section>
+
+(after the player purchases the ship and enters it)
+
+<NEW TASK: MANAGE YOUR SHIP>
+<TIP TO MANAGE SHIP>
+<TIP TO FLY YOUR SHIP>
+
+<NEW TASK: LEAVE THE STATION ON YOUR NEW SHIP>
+
+
+(After the player leaves, the station goes under heavy fire)
+
+<NEW TASK: ESCAPE THE ATTACK>
+
+<NEW MISSION: WHO AM I?>
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,64 @@
+public class Window extends Block implements Basic Block
+
+private double tintVal = 0.2;
+private Color tintCol = Color.BLACK;
+
+private bool hasWipers = false;
+
+private double fogLevel = 0;		//rain and fog will both add here
+private double wiperTrigger = 0.3;
+
+private bool Wipping = false;
+
+
+//_______________
+public Window(SubType st, ShapeType sht, int w, int h, int ar)
+{
+	super(st, sht, ar, w, h, 100, this.TintCol);
+	
+	this.transparency = this.tintVal;
+}
+
+public Window(SubType st, ShapeType sht, int w, int h, int ar, double tV,
+		Color col)
+{
+	super(st, sht, ar, w, h, 100, col);
+	
+	this.tintVal = tV;
+	this.tintCol = col;
+	this.transparency = this.tintVal;
+}
+
+public void upDate()
+{
+	super.upDate();
+	
+	//Fog
+	if (!this.wipping)
+	{
+		double localFog = LocalSpace.getLocalFog();
+
+		this.fogLevel += localFog * 0.01;
+	
+		if(this.fogLevel > this.wiperTrigger)
+		{ this.wipping = true; }
+	}
+	else
+	{ this.runWipe(); }
+}
+
+private void runWipe()
+{
+	//Animation
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+	//TODO: Test, refactor, no literals, 100.00
+	public static String unitToString(double value, String unit)
+	{
+		String text		= "";
+//		String format	= "";
+		double value2	= Math.abs(value);
+		double newValue	= Math.abs(value2);
+		int numMod3		= 0;
+		int index		= 0;
+		
+		if (PMath.zequals(value2, 0))
+			return "0.000 " + unit;
+		
+		int sigFigs = PMath.getSigFigs(newValue, 4);
+		
+		index = (int) Math.floor(Math.log10(newValue)/3);
+		newValue = value2/Math.pow(10, index*3);
+		
+		
+		
+		int intVal = PMath.roundDoubleToInt(newValue * 1000);
+		intVal /= 1000;
+		
+		numMod3 = PMath.numOfDigits(intVal);
+		
+		int index2 = (int) Math.floor(Math.log10(intVal)/3);
+		intVal = (int) (intVal/Math.pow(10, index2*3));
+		
+		if (numMod3 > PMath.numOfDigits(intVal))
+			index += 1;
+		
+		numMod3 = PMath.numOfDigits(intVal);
+		
+		if (value > 0)
+		{
+			int f1 = numMod3;
+			text += Integer.toString(sigFigs);
+			text = ' ' + text.substring(0, f1) + "." + text.substring(f1, text.length());
+		}
+		else
+		{
+			int f1 = numMod3;
+			text += Integer.toString(sigFigs);
+			text = '-' + text.substring(0, f1) + "." + text.substring(f1, text.length());			
+		}
+		
+		text += ' ';
+		
+		index += 6;
+		if (unit == "kg")
+		{
+			index += 1;
+			
+			if (index >= 0 && index < Units.massPrefixes.length)
+			{
+				text += Units.massPrefixes[index];
+			}
+			else
+			{
+				text += "*10^";
+				text += Integer.toString(index*3);
+				text += unit;
+			}
+		}
+		else
+		{
+			if (index >= 0 && index < Units.prefixes.length)
+			{
+				text += Units.prefixes[index];
+				text += unit;
+			}
+			else
+			{
+				text += "*10^";
+				text += Integer.toString(index*3);
+				text += unit;
+			}
+		}
+		
+		return text;
+	}

@@ -1,0 +1,8 @@
+class BlockGrid
+{
+	// This class has a grid of blocks.
+	
+	Body body;
+	
+	List Blocks; 
+}

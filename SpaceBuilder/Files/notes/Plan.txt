@@ -1,0 +1,133 @@
+2020-0531-1645
+PLAN
+
+------------------------------------------------
+-------------------SHORT PLAN-------------------
+------------------------------------------------
+
+GRID BASED BUILDING
+	<>	Create new builder and connection point classes.
+
+SWITCH IDEs
+	<>	Maybe use Atom with java ide plugin.
+
+------------------------
+--------BIG STUFF-------
+------------------------
+
+SPACE STATIONS
+	<>	Procedural generation
+		<>	Chunks, groups, general look planned out
+	<>	Assets
+		<>	Background blocks
+
+MINING
+	<>	Spawn resources on planet
+
+PLANET TO SPACE TRANSITION
+	<>	Change background
+	<>	Draw partial atmosphere
+	<>	Change gravity
+
+USER INTERFACE
+	<>	Building tool
+		<>	Resize
+		<>	Mirror
+	<>	Coloring tool
+		<>	Pick Color for blocks
+	<>	Spaceship Implement Commendable
+	<>	Main Menu
+
+USER INTERFACE
+	<>	Main Menu
+	<>	RPG interface and HUD
+	= Input-To-Command translator
+
+PLANET
+	<>	Procedural generation
+	<>	Terrain
+		<>	Box2D edge thingy will be used
+		<>	Edge will trace directly over simple polygons
+			<>	A finite and small number of triangle and rectangle shapes will make up the terrain (for the sake of graphics and terrain digging).
+		  	<>	Terrain should be diggable as far as you want (really? maybe a super deep bedrock)
+		<>	ChunkLoopLoop
+		<>	Black background can use the polygon vertices from the ChainShape
+		<>	Mining
+
+SPACE STATION
+	<>	Procedural generation
+
+SPACE SHIP
+	<>	Building using materials
+
+SAVING LOADING
+	<>	Save scenarios
+	<>	Save game state
+
+ASSETS
+	<>	Block layers
+		<>	Object layer
+		<>	Info layer
+	    	<>	Symbols representing blocks and status
+	      		<>	(tear drop for tanks, battery for batteries)
+	    		<>	Progress indicators
+	<>	Left and Right shading?
+		<>	Image for left shading, image for right shading, change color and alpha at runtime
+
+------------------------
+------SMALL STUFF-------
+------------------------
+
+Proper testing classes
+	<>	Different Games for different testing scenarios
+
+Blocks
+	<>	Background blocks
+	<>	Chair
+  		<>	Player docking to chair
+    	<>	docking switches controls to ship
+	<>	Should the ship be defined by the chair?
+	<>	Rotor
+	<>	Piston
+	<>	Landing Shoe
+
+PMath
+	<>	Smooth Numbers
+
+SpaceShip
+	<>	Input should be moved to this class thruster and junk should receive commands, not input handler
+
+Physics Listeners
+	<>	Make a struct that holds a contactListener interface
+		<>	Don't forget body.addUserData()
+
+------------------------------------------------
+----------------STUFF TO FIX--------------------
+------------------------------------------------
+
+------------------------
+--------BIG STUFF-------
+------------------------
+
+RENDERING
+	<>	Draw the whole space ship to a single image
+		<>	This image will not change most of the time,
+	    don't redraw all the components over and over again
+		<>	Same with ground
+	<>	MipMaps
+	<>	Problem with the scaling? Things are scaled down to block size, 1 meter is scaled as 1 pixel, then scaled again internally for a large image.
+
+------------------------
+-------SMALL STUFF------
+------------------------
+
+Refactor Connection points
+	<>	Efficiency
+	<>	Visible/Nonvisible is wrong
+
+------------------------
+---------TODOs----------
+------------------------
+
+Model.java
+	-setFPS(int fps)

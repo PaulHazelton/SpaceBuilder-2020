@@ -1,0 +1,34 @@
+Asset File Hirearchy
+
+Type
+SubType
+SubSubType
+
+(Shape, Width, Heigh, Armor, Damage)
+
+
+
+		Silhouette
+Shape		Shape
+Width		Width
+Height		Height
+Detail
+Detail
+
+Ex.
+Basic Block
+Hull
+Standard
+		Sil
+Rectangle	Rectangle
+Armor Rating	Armor Rating
+Damage		Width
+Width		Height
+Height
+
+basic block
+	hull
+		standard
+			bh00000.png - Rec, W, H, Ar, Dam
+			sil
+				bh000.png   - Rec, W, H

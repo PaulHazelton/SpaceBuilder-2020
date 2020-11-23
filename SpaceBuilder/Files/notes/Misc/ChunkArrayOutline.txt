@@ -1,0 +1,80 @@
+2019-0608-1847
+Circular array for chunks: NOTES
+
+Notes:
+- Array of fixed length (21)
+- 1 separation in the array, 1 indicator needed
+
+Diagram (Array of length 9)
+
+Start
+
+	i	 _0_ _1_ _2_ _3_ _4_ _5_ _6_ _7_ _8_ 
+		|   |   |   |   |   |   |   |   |   |
+	x	| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+		|___|___|___|___|___|___|___|___|___|
+		  ^
+	Pivot		= 0
+	Range:		[ 0, 8]
+	if (i >= p)	x = i
+
+Roll right (After walking to the right)
+
+	i	 _0_ _1_ _2_ _3_ _4_ _5_ _6_ _7_ _8_ 
+		|   |   |   |   |   |   |   |   |   |
+	x	| 9 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+		|___|___|___|___|___|___|___|___|___|
+		      ^
+	Pivot		= 1		(+1 to pivot)
+	Cycles		= 0
+	Range:		[ 1, 9] 	(+1 to range)
+	if (i >= p)	x = i + cyles*9
+	if (i <  p)	x = i + (cylces+1)*9
+
+	i	 _0_ _1_ _2_ _3_ _4_ _5_ _6_ _7_ _8_ 
+		|   |   |   |   |   |   |   |   |   |
+	x	| 9 | 10| 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+		|___|___|___|___|___|___|___|___|___|
+			  ^
+	Pivot		= 2
+	Cylces		= 0
+	Range:		[ 2, 10] (+1 to range)
+	if (i >= p)	x = i + cyles*9
+	if (i <  p)	x = i + (cylces+1)*9
+
+Roll right more than length (Pivot wrapps around)
+
+	i	 _0_ _1_ _2_ _3_ _4_ _5_ _6_ _7_ _8_ 
+		|   |   |   |   |   |   |   |   |   |
+	x	| 9 | 10| 11| 12| 13| 14| 15| 16| 8 |
+		|___|___|___|___|___|___|___|___|___|
+						  ^
+	Pivot		= 8
+	Cycles		= 0
+	Range:		[ 8, 16] (+1 to range)
+	if (i >= p)	x = i + cyles*9
+	if (i <  p)	x = i + (cylces+1)*9
+
+	i	 _0_ _1_ _2_ _3_ _4_ _5_ _6_ _7_ _8_ 
+		|   |   |   |   |   |   |   |   |   |
+	x	| 9 | 10| 11| 12| 13| 14| 15| 16| 17|
+		|___|___|___|___|___|___|___|___|___|
+		  ^
+	Pivot		= 0
+	Cycles		= 1
+	Range:		[ 9, 17] (+1 to range)
+	if (i >= p)	x = i + cyles*9
+	if (i <  p)	x = i + (cylces+1)*9
+
+Roll left more than length (Pivot wraps around)
+
+	i	 _0_ _1_ _2_ _3_ _4_ _5_ _6_ _7_ _8_ 
+		|   |   |   |   |   |   |   |   |   |
+	x	| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |-1 |
+		|___|___|___|___|___|___|___|___|___|
+						  ^
+	Pivot		= 0	(-1 to pivot)
+	Cycles		= -1
+	Range:		[-1, 7] (-1 to range)
+	if (i >= p)	x = i + cyles*9
+	if (i <  p)	x = i + (czylces+1)*9

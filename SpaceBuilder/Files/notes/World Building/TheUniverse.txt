@@ -1,0 +1,56 @@
+SILICONO:	The silicon planet
+
+PLANET DETAILS:
+	Temperature:
+		Close to sun, hot
+	Size:
+		Larger
+	Atmosphere:
+		Silane (flamable, stinky), Oxygen, Sulfuric Acid (gas), hydrogen, nitrogen, (Clear)
+	Oceans:
+		Sulfuric Acid disolved in water (Clear)
+		Silicon dioxide shores (fine white powder) with fumes
+	Surface:
+		Lots of silicon, iron, quartz, and living mountains and grounds
+		Living mountains create extreme terrain with massive clifs.
+	Appearence:
+		Clear quartz surface with metalic silicon and iron below.
+	Notes:
+		Silicon and oxygen produces quartz.
+		Hazardous to humans
+		Much of the crust is living, collecting energy. This creates a conflict: many desire to mine the planet for its energy.
+
+LIFE:
+	Details:
+		Silicon based life, nitrogen based genes
+		Energy is taken from the sun and the hydrogen in the air
+		Called Metalloids
+	Plant Life:
+		Oceans:
+			There is tree like sea grass, with fauna above the surface and roots that hang in the oceans
+		Land:
+			Metalic moss grows everywhere
+			There is an abundance of gigantic metalic tree-like plants.
+			Living mountains and living ground are abundant.
+				These giant living structures have a low density lattice structure that facilitates air flow.
+				They consume the air and collect energy, thus they grow to extreme sizes and are very strong.
+	Animal Life:
+		Oceans:
+		Land:
+
+	Inteligent Life:	Metalic
+		Origin:
+			Evolved in a similar way to humans, eating animals
+		Appearence:
+			Metalic
+		Biology:
+			Computer like brain, highly intelligent.
+			They interface with computers easily, and do so often
+		Culture:
+			
+			
+			
+Note: do these
+GROUPS
+HISTORY
+TECHNOLOGY

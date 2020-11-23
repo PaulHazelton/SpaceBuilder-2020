@@ -1,0 +1,216 @@
+BLOCK LIST:
+
+BASIC BLOCKS______________________
+Hull Block
+	Armor
+	Window
+		Wipers
+Back Pannels
+Front Pannels
+
+PRESSURE REGULATION______________________
+Seal
+	Air
+	Water
+Pressure Sensor
+	Air
+	Water
+Air Vent
+Air Filter
+Air Cooler
+Air Heater
+
+LIGHTS______________________
+Light
+	Spotlight
+	Exterior Light
+		Sea Light
+	Interior Light
+		Color changes
+
+ENERGY______________________
+Solar Pannel
+	Intensity
+		Low
+		High
+Liquid Turbine
+Power Generators
+	Fuel
+	Fission
+	Fusion
+	Anti Matter
+Distributor - neccesarry for all ships
+Batteries
+	Normal
+	Fast - holds a large charge to overload systems - may damage
+		systems that are overloaded
+
+CONTAINMENT______________________
+Tank
+	Fuel
+	Air
+	Water
+Container
+	Cargo
+	Ammunition
+	Freezer
+	Anti matter
+	______________________
+		Networkable
+
+COMPUTERS______________________
+Hardware
+	Control Pannel
+	Communicator
+		Messeging
+		Controlling
+		Sensor
+	Scanner
+	Camera
+	Navigation
+	Super Computer
+	Beacon
+	Kiosk
+Software
+	Flight Calibrator
+	Auto piolot
+
+CONNECTORS______________________
+Landing Shoe
+	Landing Pad
+		Platform
+		Terrain Flat
+		Terrain Med
+		Terrain Rough
+Pump
+	Air
+	Water
+		Water Evacuation Pipe
+			Emergency
+	Fuel
+	Anti Matter
+
+Transfer Tube
+	Expandable
+
+MANUFACTURING____________________
+Construction Rail
+Construction Arm
+3D Printer
+Material Synthesizer
+Convayor Rail
+Magnet Transporter
+	______________________
+	Ship Class
+	Station Class
+MINING______________________
+Mining Drill
+Melting Lazer
+Ore Collector
+Refinery
+Grinder
+
+MECHANICS______________________
+Rotor
+Piston
+Repair Arm
+Magnet
+Clamp
+	Delicate
+	Heavy - may damage item
+Collector Bin
+
+LAND LOCOMOTION______________________
+Axel
+Wheel
+	Terrain
+		Paddels
+	Load
+	Powered
+Tred Roller
+Tred
+	Paddels
+
+AIR LOCOMOTION______________________
+Air Thruster
+	one way
+	two way
+Baloon
+Wings
+PLATO Engine - Planet Landing and Take-Off - high/exotic fuel, high force
+
+SEA LOCOMOTION______________________
+Liquid Thruster
+Pontoon
+
+SPACE LOCOMOTION______________________
+Gyroscope
+Truster
+	One Way
+	Two Way
+	Rotary
+EMFM Engine - Electro Magnetic Field Manipulator - no fuel, low force
+Alcubierre Drive
+
+WEAPONS______________________
+Projectile
+	Standard
+		mm Sizes
+		Fire rate
+	Cannon
+	Rail Gun - high mass, very fast moving projectile
+Explosive
+	Standard Charge
+	Linear Charge
+	Directional Charge
+	______________________
+		Triggered
+		Impact
+	Nuclear Bomb
+Energy
+	Pulse Laser
+	Laser
+	Burst Laser
+Tacticle
+	Ripper
+	EMP
+
+DEFENCE______________________
+Sheild
+	Energy Sheild Projector
+	Focused inverted radial gravity generator - short burst anti matter
+Point Defence
+	Projectile
+	Explosive
+	Energy
+
+MISCELLANEOUS______________________
+Seat
+	Luxury Seat - 0 benefit
+Gravity Generator
+	Linear
+	Radial
+	______________________
+		Strength
+Surge Protector
+Med Bay
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

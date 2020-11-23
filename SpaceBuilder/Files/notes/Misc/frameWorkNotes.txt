@@ -1,0 +1,2 @@
+have a gamemode class that exists in the abstract controller class. This class will replace the
+currtest variable and will be updated in the render method.

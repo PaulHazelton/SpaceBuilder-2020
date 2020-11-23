@@ -1,0 +1,36 @@
+Notes on new grid based method of building
+2020-0531-1609
+
+LIGHTBULB MOMENT!:
+	Very large 2D array (full of pointers?)
+	OR! A list of CHUNKS, where each chunk is a reasonable 2D array
+	Each square has information:
+		A pointer to a block
+		Boolean occupied
+		4 sides
+			buildable
+			sealed
+	What if there is a large block?
+		1 large block occupies many cells.
+		Each cell occupied by the same block points to the same block.
+
+Scratch notes:
+	Connection Points might still be a good idea.
+	For blocks with odd shapes, such as triangles:
+		Don't allow a block to connect if it doesn't make sense.
+	
+	For blocks that are bigger than 1x1:
+		Don't use many 1x1 blocks, stupid.
+		Mouse aligns to center or top left. (center prolly)
+	
+	Build Suggestions:
+		Block in hand always aligns to grid.
+		If block in hand cannot connect to existing blocks, then just don't show ghost.
+	
+	Block Grid:
+		Array list of blocks
+		Blocks are aligned by INTEGERS
+	
+	BlockBody:
+		This class either needs to completely change,
+		or use a new class called BlockGrid.

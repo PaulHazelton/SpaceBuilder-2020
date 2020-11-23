@@ -1,0 +1,25 @@
+fields
+	name
+	globalPos
+	localPos
+	totalMass
+	blocks<>
+class_
+	construction
+		new body
+		addBlock(basic block)
+	addBlock
+		if block is valid
+			blocks.add
+			new fixture
+	getBlock
+		return block
+	update
+		for all blocks
+			update blocks
+	render
+		if player is in ship
+			render back
+			render middle
+		else
+			render front

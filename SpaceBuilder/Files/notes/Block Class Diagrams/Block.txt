@@ -1,0 +1,112 @@
+public abstract class Block extends SomePhysicsClass
+
+
+//Basic Data
+String st = 0;		
+String sst = 0;
+ShapeType sht = ShapeType.RECTANGLE;
+
+private int ar = 0; //Armor rating
+private int di; //damage index
+private int wi; //width index
+private int hi; //height index
+
+private double area = 0;
+
+private int health = 1;
+private intmaxHealth;
+
+private int w;
+private int h;
+
+static int hVal;
+
+
+//Image info
+static Image[][][][][][] imgs = null; //st, sht, w, h, ar, dam
+static Image[][][][][][] sils = null; //st, sht, w, h, ar, dam
+
+private Image img;
+private Image sil;
+
+private Color color = White;
+
+
+
+
+//Specific Block Data
+//Energy/Power
+public double powerDraw = 0; 	//Watts
+public double energyStored = 0;	//Joules
+
+
+
+
+//Constructor
+public BasicBlock (SUB_TYPE st, SHAPE_TYPE sht,
+			int ar, int w, int h, int hVal, Color col)
+{
+	st = st;
+	sst = sst;
+	sht = sht;
+	ar = ar;
+	
+	area = (w * h);	
+	if (sht = ShapeType.TRIANGLE)
+	{ area / 2; }
+
+	maxHealth =	area * hVal * 2 ^ ar;
+	health =	area * hVal * 2 ^ ar;
+
+	dam = Math.Floor(((health / maxHealth) / (1 / damNum)) + 0.01);
+
+	if (h > w)
+	{
+		int tw = w;
+		w = h;
+		h = tw;
+		a += 90; //angle + 90deg
+	}
+	
+	wi = w - 1;
+	hi = h - 1;
+
+	initializeImages();
+}
+
+private void initializeImages() [fix]
+{
+	if (imgs[st][ar][dam][w][h] = null)
+	{
+	    imgs[st][ar][dam][w][h] = load(imgs[st][ar][dam][w][h]);
+	    sils[st][ar][dam][w][h] = load(sils[st][ar][dam][w][h]);
+	}
+
+	img = imgs[st][ar][dam][w][h];
+	sil = sils[st][ar][dam][w][h];
+
+	sil = setColor(sil, col);
+}
+
+public void update()
+{
+	super.update();
+	this.checkDamage();
+}
+
+public bool isDestroyed()
+{if (health <= 0){return true;}}
+
+private void checkDamage()
+{
+	dam = Math.Floor(((health / maxHealth) / (1 / damNum)) + 0.01);
+}
+
+
+
+
+
+
+
+
+
