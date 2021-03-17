@@ -1,0 +1,10 @@
+The Game Loop: What is the player doing over and over?
+
+Factorio's game loop:
+	- Player unlocks tech, which causes research speed to decrease (next research costs more)
+	- Player uses new tech to speed up research
+
+The Campaign:
+	- Player finds new tech (through quest)
+		- the next tech is harder to get
+	- Player uses new tech to get next tech
